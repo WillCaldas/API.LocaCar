@@ -9,6 +9,10 @@ namespace API.LocaCar.Profiles
         public AgenciaProfile()
         {
             CreateMap<CreateAgenciaDto, Agencia>();
+            CreateMap<Agencia, ReadAgenciaDto>();
+            CreateMap<Agencia, UpdateAgenciaDto>();
+            CreateMap<UpdateAgenciaDto, Agencia>();
+
         }
     }
 }
