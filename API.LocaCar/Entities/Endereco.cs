@@ -1,4 +1,6 @@
-﻿namespace API.LocaCar.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace API.LocaCar.Entities
 {
     public class Endereco
     {
@@ -7,6 +9,8 @@
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public int Numero { get; set; }
+        [JsonIgnore]
+        public Agencia Agencia { get; set; }
 
     }
 }
