@@ -25,6 +25,7 @@ namespace API.LocaCar.Data
                 .HasOne(end => end.Agencia)
                 .WithOne(ag => ag.Endereco)
                 .HasForeignKey<Agencia>(ag => ag.EnderecoId);
+
         }
     }
 }
