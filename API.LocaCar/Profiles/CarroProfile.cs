@@ -9,6 +9,9 @@ namespace API.LocaCar.Profiles
         public CarroProfile()
         {
             CreateMap<CreateCarroDto, Carro>();
+            CreateMap<Carro, ReadCarroDto>();
+            CreateMap<UpdateCarroDto, Carro>();
+            CreateMap<Carro, UpdateCarroDto>();
         }
     }
 }
