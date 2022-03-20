@@ -11,5 +11,7 @@ namespace API.LocaCar.Data
 
         public DbSet<Carro> Carros { get; set; }
         public DbSet<Agencia> Agencias { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
+
     }
 }
