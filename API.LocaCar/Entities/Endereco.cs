@@ -9,6 +9,7 @@ namespace API.LocaCar.Entities
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public int Numero { get; set; }
+        public string CEP { get; set; }
         [JsonIgnore]
         public Agencia Agencia { get; set; }
 

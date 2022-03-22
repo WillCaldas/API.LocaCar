@@ -1,6 +1,7 @@
 ﻿using API.LocaCar.Data;
 using API.LocaCar.DTOs.CarroDtos;
 using API.LocaCar.Entities;
+using API.LocaCar.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,20 +15,29 @@ namespace API.LocaCar.Controllers
     {
         private LocaCarDbContext _context;
         private IMapper _mapper;
+        private ServiceCheck _service;
 
         public CarroController(LocaCarDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+            _service = new ServiceCheck(context);
         }
 
         [HttpPost]
         public IActionResult AddCar(CreateCarroDto nCar)
         {
-            Carro newCar = _mapper.Map<Carro>(nCar);
-            _context.Carros.Add(newCar);
-            _context.SaveChanges();
-            return Ok();
+            if (_service.CheckCapacidade(nCar.AgenciaId)){
+                Carro newCar = _mapper.Map<Carro>(nCar);
+                _context.Carros.Add(newCar);
+                _context.SaveChanges();
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+            
         }
 
         [HttpGet]

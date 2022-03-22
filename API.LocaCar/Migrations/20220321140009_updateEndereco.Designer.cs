@@ -2,14 +2,16 @@
 using API.LocaCar.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.LocaCar.Migrations
 {
     [DbContext(typeof(LocaCarDbContext))]
-    partial class LocaCarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220321140009_updateEndereco")]
+    partial class updateEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

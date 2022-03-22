@@ -1,6 +1,7 @@
-﻿using API.LocaCar.Data;
+﻿ using API.LocaCar.Data;
 using API.LocaCar.DTOs.AgenciaDtos;
 using API.LocaCar.Entities;
+using API.LocaCar.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace API.LocaCar.Controllers
     {
         private LocaCarDbContext _context;
         private IMapper _mapper;
+        private ServiceCheck _service;
 
         public AgenciaController(LocaCarDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+            _service = new ServiceCheck(context);
         }
 
         [HttpPost]
